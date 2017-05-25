@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/openshift/nodejs-ex.git"
+    "url": "http://github.com/joelahoover/demo-server.git"
   },
   "author": "Joel Hoover <joelahoover@gmail.com>",
   "license": "None",
