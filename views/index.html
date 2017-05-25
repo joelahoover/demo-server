@@ -7,6 +7,18 @@
 </head>
 <body>
 
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  <script>
+  $.getJSON("https://s3.us-east-2.amazonaws.com/nmv-demo-assets/json/test.json", function(newdata, status) {
+    if (status == "success") {
+      console.log(newdata)
+    } else {
+      alert("Failed to load json: " + status);
+    }
+  });
+  </script>
+
   <h1>Demos Here!</h1>
   <div>(coming soon?)</div>
   <image src="https://s3.us-east-2.amazonaws.com/nmv-demo-assets/images/note.png"/>
