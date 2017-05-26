@@ -10,7 +10,11 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
   <script>
-  $.getJSON("https://s3.us-east-2.amazonaws.com/nmv-demo-assets/json/test.json", function(newdata, status) {
+  const config = <%- JSON.stringify(config) %>;
+  </script>
+
+  <script>
+  $.getJSON(config.resource_server + "json/test.json", function(newdata, status) {
     if (status == "success") {
       console.log(newdata)
     } else {
@@ -21,7 +25,7 @@
 
   <h1>Demos Here!</h1>
   <div>(coming soon?)</div>
-  <image src="https://s3.us-east-2.amazonaws.com/nmv-demo-assets/images/note.png"/>
+  <image src=<%=config.resource_server+"images/note.png"%> />
 
 </body>
 </html>
