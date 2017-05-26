@@ -2,10 +2,9 @@ var express = require('express'),
     fs      = require('fs'),
     app     = express(),
     eps     = require('ejs'),
-    morgan  = require('morgan'),
-    nomv    = require('nomv');
+    morgan  = require('morgan');
 
-Object.assign=require('object-assign')
+Object.assign=require('object-assign');
 
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'));
@@ -23,7 +22,7 @@ app.get('/bundle.js', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-  res.render('index.html', { config: { resource_server: resource_server }, message: nomv.getString() + " (or not!)" });
+  res.render('index.html', { config: { resource_server: resource_server } });
 });
 
 
