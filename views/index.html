@@ -13,15 +13,7 @@
   const config = <%- JSON.stringify(config) %>;
   </script>
 
-  <script>
-  $.getJSON(config.resource_server + "json/test.json", function(newdata, status) {
-    if (status == "success") {
-      console.log(newdata)
-    } else {
-      alert("Failed to load json: " + status);
-    }
-  });
-  </script>
+  <script src="bundle.js"></script>
 
   <h1>Demos Here!</h1>
   <div>A quick message: <%= message %></div>

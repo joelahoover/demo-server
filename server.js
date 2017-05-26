@@ -18,9 +18,14 @@ if(resource_server === undefined) {
   throw "Error: Resource server undefined. (Is NMV_DEMO_RESOURCE_SERVER set in the environment?)";
 }
 
+app.get('/bundle.js', function (req, res) {
+  res.sendFile(__dirname + '/dist/bundle.js');
+});
+
 app.get('/', function (req, res) {
   res.render('index.html', { config: { resource_server: resource_server }, message: nomv.getString() + " (or not!)" });
 });
+
 
 // error handling
 app.use(function(err, req, res, next){

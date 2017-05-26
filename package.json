@@ -4,6 +4,7 @@
   "description": "Server to host demo NMV projects",
   "main": "server.js",
   "dependencies": {
+    "browserify": "^14.3.0",
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "ejs": "^2.4.1",
@@ -18,6 +19,7 @@
     "npm": "*"
   },
   "scripts": {
+    "build": "mkdir -p dist/ && browserify browser/*.js > dist/bundle.js",
     "start": "node server.js",
     "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
   },
