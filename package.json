@@ -1,6 +1,6 @@
 {
   "name": "demo-server",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Server to host demo NMV projects",
   "main": "server.js",
   "dependencies": {
