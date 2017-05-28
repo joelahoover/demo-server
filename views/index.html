@@ -6,18 +6,109 @@
   <title>NMV Demos</title>
 </head>
 <body>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
   <script>
   const config = <%- JSON.stringify(config) %>;
   </script>
 
+  <div class="container">
+    <h1>CS 4621 Final Project <span class="subtitle">Node-based Music Visualizer</span></h1>
+
+    <div align="center">
+        <canvas tabindex="1" id="webglCanvas" style="border: none; background-color: black;" width="800" height="800"></canvas>
+        <audio controls id="audioElement" style="width: 800px;" preload="none">
+        </audio>
+    </div>
+
+    <div id="player-options">
+        <table>
+          <tr>
+            <td>
+              <label>Select Song: </label>
+            </td>
+            <td width="20"></td>
+            <td>
+              <select id="song-selector">
+                <option hidden selected disabled>(None)</option>
+                <option value="pong_python">Pong: Rolemusic - Python</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+    </div>
+
+    <h2>Team Members</h2>
+    <ul>
+        <li>Joel Hoover (jah55)</li>
+        <li>Max Milne (mjm686)</li>
+        <li>Roger Rojas (rdr95)</li>
+    </ul>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.3.2/gl-matrix-min.js"></script>
+
+  <script id="vertexShaderSprite" type="x-shader/x-vertex">
+      uniform vec4 color;
+
+      attribute vec3 position;
+      attribute vec2 texCoord;
+
+      varying vec2 vTexCoord;
+      varying vec4 vColor;
+
+      void main() {
+          gl_Position = vec4(position, 1.);
+          vTexCoord = texCoord;
+          vColor = color;
+      }
+  </script>
+
+  <script id="fragmentShaderSprite" type="x-shader/x-fragment">
+      precision mediump float;
+
+      uniform sampler2D texture;
+
+      varying vec2 vTexCoord;
+      varying vec4 vColor;
+
+      void main() {
+          vec4 color = vColor * texture2D(texture, vTexCoord);
+          color.rgb *= color.a;
+          gl_FragColor = color;
+      }
+  </script>
+
+  <script id="vertexShaderParticle" type="x-shader/x-vertex">
+      attribute vec3 position;
+      attribute vec2 texCoord;
+      attribute vec4 color;
+
+      varying vec2 vTexCoord;
+      varying vec4 vColor;
+
+      void main() {
+          gl_Position = vec4(position, 1.);
+          vTexCoord = texCoord;
+          vColor = color;
+      }
+  </script>
+
+  <script id="fragmentShaderParticle" type="x-shader/x-fragment">
+      precision mediump float;
+
+      uniform sampler2D texture;
+
+      varying vec2 vTexCoord;
+      varying vec4 vColor;
+
+      void main() {
+          vec4 color = vColor * texture2D(texture, vTexCoord);
+          color.rgb *= color.a;
+          gl_FragColor = color;
+      }
+  </script>
+
   <script src="bundle.js"></script>
-
-  <h1>Demos Here!</h1>
-  <div>A quick message: [Disabled]</div>
-  <image src=<%=config.resource_server+"images/note.png"%>></image>
-
 </body>
 </html>

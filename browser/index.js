@@ -1,11 +1,11 @@
 
-var nomv = require('nomv')
+nomv = require('nomv')
 
 $.getJSON(config.resource_server + "json/test.json", function(newdata, status) {
   if (status == "success") {
     console.log("Success!");
     console.log(newdata);
-    console.log("Bonus message: " + nomv.getString())
+    nomv.run(config.resource_server);
   } else {
     alert("Failed to load json: " + status);
   }
