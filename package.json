@@ -31,6 +31,6 @@
     "url": "http://github.com/joelahoover/demo-server.git"
   },
   "author": "Joel Hoover <joelahoover@gmail.com>",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "homepage": "http://github.com/joelhoover/demo-server"
 }
