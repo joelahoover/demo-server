@@ -5,22 +5,29 @@
   "main": "server.js",
   "dependencies": {
     "browserify": "^14.3.0",
+    "browserify-shim": "^3.8.14",
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-environments": "^0.1.2",
     "mocha": "^2.4.5",
     "morgan": "^1.7.0",
     "nomv": "0.1.2",
-    "object-assign": "4.1.0"
+    "object-assign": "4.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "browserify-shim": {
+    "jquery": "global:$"
   },
   "engine": {
     "node": "*",
     "npm": "*"
   },
   "scripts": {
-    "build":     "mkdir -p dist/ && browserify    browser/*.js > dist/bundle.js",
-    "build-dev": "mkdir -p dist/ && browserify -d browser/*.js > dist/bundle.js",
+    "build": "gulp build-js --env production",
+    "build-dev": "gulp build-js --env development",
     "postinstall": "npm run build",
     "start": "node server.js",
     "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js",

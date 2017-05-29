@@ -1,4 +1,6 @@
 
+// Declare in global scope so we have access for debugging
+$ = require('jquery')
 nomv = require('nomv')
 
 $.getJSON(config.resource_server + "song_index.json", function(newdata, status) {
