@@ -12,6 +12,8 @@
     "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-environments": "^0.1.2",
+    "gulp-live-server": "0.0.30",
+    "gulp-util": "^3.0.8",
     "mocha": "^2.4.5",
     "morgan": "^1.7.0",
     "nomv": "0.1.2",
@@ -26,11 +28,12 @@
     "npm": "*"
   },
   "scripts": {
-    "build": "gulp build-js --env production",
-    "build-dev": "gulp build-js --env development",
+    "build": "gulp build --env production",
+    "build-dev": "gulp build --env development",
     "postinstall": "npm run build",
     "start": "node server.js",
     "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js",
+    "serve-watch": "gulp build watch serve --env developoment",
     "clean": "rm -rf dist"
   },
   "repository": {
